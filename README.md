@@ -1,10 +1,10 @@
-# 🛒 Slooze — Commodities Management System
+# 🛒 Commodities Management System
 
 A full-stack **Commodities Management System** built with role-based access, dashboard analytics, product management, and light/dark mode theming.
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 | Layer      | Technology                                               |
 |------------|----------------------------------------------------------|
@@ -14,7 +14,7 @@ A full-stack **Commodities Management System** built with role-based access, das
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── backend/                  NestJS + GraphQL API
@@ -46,7 +46,7 @@ A full-stack **Commodities Management System** built with role-based access, das
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Node.js** ≥ 18
@@ -81,7 +81,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 🔑 Demo Credentials
+## Demo Credentials
 
 | Role           | Email               | Password       |
 |----------------|---------------------|----------------|
@@ -90,7 +90,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 🔒 Role-Based Access Rules
+## Role-Based Access Rules
 
 | Feature          | Manager | Store Keeper |
 |------------------|---------|-------------|
@@ -106,40 +106,40 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## ✨ Features Implemented
+## Features Implemented
 
-### Authentication & Access (5 pts)
+### Authentication & Access
 - Login page with email/password validation
 - JWT-based auth with `Bearer` tokens stored in `localStorage`
 - Role-based redirect: Managers → Dashboard, Store Keepers → Products
 
-### Dashboard (30 pts)
+### Dashboard
 - 4 stats cards (Total Earning, Views, Sales, Subscriptions) with trend indicators
 - Overview bar chart, Recent Sales list
 - Stats grid with bar + line charts
 - Bottom row: Subscription Performers, Top Sales, Payment History
 - **Manager-only** — guarded on both frontend and backend
 
-### View Products (10 pts)
+### View Products
 - Published / Draft tabs with filtering
 - Sortable table with product name, views, pricing, revenue
 - Pagination controls
 - Sidebar chart showing Total Views
 - Edit & Delete actions per row
 
-### Add/Edit Products (15 pts)
+### Add/Edit Products
 - Form with: Product Name, Category dropdown, Description, Tags
 - Pricing section: Price, Discount, Discount Category
 - Image upload zones (Preview + Thumbnail) — UI ready
 - Save / Discard Change buttons
 
-### Light/Dark Mode (15 pts)
+### Light/Dark Mode
 - Theme toggle in sidebar (Sun/Moon icon)
 - Persisted to `localStorage`
 - Applied via `.dark` class on `<html>` element
 - Full dark mode support across all pages
 
-### Role-Based Menu Restrictions (25 pts bonus)
+### Role-Based Menu Restrictions
 - Sidebar nav items filtered by user role
 - Dashboard hidden for Store Keepers
 - Route guard in authenticated layout redirects unauthorized users
@@ -147,7 +147,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 📊 GraphQL API
+## GraphQL API
 
 ### Mutations
 | Mutation         | Auth     | Description              |
@@ -167,7 +167,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 🧪 Sample Data
+## Sample Data
 
 - **2 Users**: Manager + Store Keeper (bcrypt-hashed passwords)
 - **5 Categories**: Grains, Beverages, Spices, Dairy, Oils
@@ -175,7 +175,7 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 📝 Assumptions
+## Assumptions
 
 1. **No real image upload** — image upload zones are UI-only (drag-and-drop areas rendered but no file handling backend)
 2. **SQLite by default** — for zero-config local development; Supabase SQL provided for cloud deployment
@@ -185,6 +185,15 @@ Open **http://localhost:3000** in your browser.
 
 ---
 
-## 📄 License
+## User Interface
+- Dashboard (Manager)
+  
+  ![Dashboard](assets/Manager.png)
+  
+- View Products (Store Keeper)
+
+  ![View Products](assets/Store_Keeper.png)
+  
+## License
 
 MIT License - See LICENSE file for details
