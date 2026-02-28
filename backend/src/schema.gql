@@ -1,0 +1,146 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthResponse {
+  accessToken: String!
+  avatar: String
+  email: String!
+  name: String!
+  role: String!
+  userId: String!
+}
+
+type CategoryType {
+  id: ID!
+  name: String!
+}
+
+type ChartDataPoint {
+  label: String!
+  value: Float!
+}
+
+type ChartDataset {
+  data: [ChartDataPoint!]!
+  label: String!
+}
+
+input CreateProductInput {
+  categoryId: String!
+  description: String
+  discount: Float = 0
+  discountCategory: String
+  name: String!
+  previewUrl: String
+  price: Float!
+  status: String = "PUBLISHED"
+  tags: String
+  thumbnailUrl: String
+}
+
+type DashboardStats {
+  cards: [StatsCard!]!
+  overviewChart: ChartDataset!
+  paymentHistory: [PaymentRecord!]!
+  recentSales: [RecentSale!]!
+  statsCharts: [ChartDataset!]!
+  subscriptionPerformers: Int!
+  topProducts: [TopProduct!]!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createProduct(input: CreateProductInput!): ProductType!
+  deleteProduct(id: String!): Boolean!
+  login(loginInput: LoginInput!): AuthResponse!
+  updateProduct(id: String!, input: UpdateProductInput!): ProductType!
+}
+
+type PaginatedProducts {
+  items: [ProductType!]!
+  limit: Int!
+  page: Int!
+  total: Int!
+  totalPages: Int!
+}
+
+type PaymentRecord {
+  amount: String!
+  email: String!
+  name: String!
+}
+
+input ProductFilterInput {
+  categoryId: String
+  search: String
+  status: String
+}
+
+type ProductType {
+  category: CategoryType!
+  categoryId: String!
+  createdAt: DateTime!
+  description: String
+  discount: Float!
+  discountCategory: String
+  id: ID!
+  name: String!
+  previewUrl: String
+  price: Float!
+  revenue: Float!
+  status: String!
+  tags: String
+  thumbnailUrl: String
+  updatedAt: DateTime!
+  views: Int!
+}
+
+type Query {
+  categories: [CategoryType!]!
+  dashboardStats: DashboardStats!
+  product(id: String!): ProductType
+  products(filter: ProductFilterInput, limit: Int = 15, page: Int = 1): PaginatedProducts!
+}
+
+type RecentSale {
+  amount: String!
+  avatar: String
+  email: String!
+  name: String!
+}
+
+type StatsCard {
+  change: Float!
+  changeLabel: String!
+  title: String!
+  value: String!
+}
+
+type TopProduct {
+  amount: String!
+  email: String!
+  name: String!
+}
+
+input UpdateProductInput {
+  categoryId: String
+  description: String
+  discount: Float
+  discountCategory: String
+  name: String
+  previewUrl: String
+  price: Float
+  status: String
+  tags: String
+  thumbnailUrl: String
+}
