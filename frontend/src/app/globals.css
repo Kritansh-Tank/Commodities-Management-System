@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #6C5CE7;
+  --color-primary-hover: #5A4BD1;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --background: #f8f9fa;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #111827;
+  --foreground: #f3f4f6;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+/* Toggle switch */
+.toggle-track {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: #d1d5db;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggle-track.active {
+  background: #6C5CE7;
+}
+
+.toggle-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-track.active .toggle-thumb {
+  transform: translateX(20px);
+}
+
+/* Custom classes */
+.stat-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md;
+}
+
+.chart-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700;
+}
